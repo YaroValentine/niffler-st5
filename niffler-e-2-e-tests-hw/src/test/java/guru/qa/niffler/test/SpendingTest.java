@@ -37,7 +37,7 @@ public class SpendingTest {
             currency = CurrencyValues.RUB,
             category = "Обучение")
     @Test
-    void spendingShouldBeDeletedAfterTableAction(SpendJson spendJson) {
+    void spendingShouldBeDeletedAfterTableDeleteAction(SpendJson spendJson) {
         SelenideElement rowWithSpending = $(".spendings-table tbody")
                 .$$("tr")
                 .find(text(spendJson.description()));
@@ -48,4 +48,6 @@ public class SpendingTest {
         $(".spendings-table tbody").$$("tr")
                 .shouldHave(size(0));
     }
+
+
 }
