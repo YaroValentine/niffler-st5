@@ -10,12 +10,13 @@ public class RegistrationPage extends BasePage<RegistrationPage> {
 
     public static final String URL = Config.getConfig().getAuthUrl() + "/register";
 
-    private final SelenideElement header = $(".form__paragraph");
-    private final SelenideElement usernameInput = $("#username");
-    private final SelenideElement passwordInput = $("#password");
-    private final SelenideElement passwordSubmitInput = $("#passwordSubmit");
-    private final SelenideElement signUpBtn = $("button[type='submit']");
-    private final SelenideElement formError = $(".form__error");
+    private final SelenideElement
+            header = $(".form__paragraph"),
+            usernameInput = $("#username"),
+            passwordInput = $("#password"),
+            passwordSubmitInput = $("#passwordSubmit"),
+            signUpBtn = $("button[type='submit']"),
+            formError = $(".form__error");
 
     @Override
     public RegistrationPage checkThatPageLoaded() {

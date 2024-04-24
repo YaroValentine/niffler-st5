@@ -17,7 +17,6 @@ public class MainPage extends BasePage<MainPage> {
     private final ElementsCollection spendingRows = $(".spendings-table tbody").$$("tr");
     private final SelenideElement deleteSelectedBtn = $(byText("Delete selected"));
 
-
     public Header getHeader() {
         return header;
     }
