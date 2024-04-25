@@ -1,6 +1,8 @@
 package guru.qa.niffler.test.ui;
 
+import guru.qa.niffler.jupiter.annotation.Category;
 import guru.qa.niffler.jupiter.annotation.Spend;
+import guru.qa.niffler.jupiter.extension.CategoryExtension;
 import guru.qa.niffler.jupiter.extension.SpendExtension;
 import guru.qa.niffler.model.CurrencyValues;
 import guru.qa.niffler.model.SpendJson;
@@ -12,7 +14,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import static com.codeborne.selenide.Selenide.open;
 
-@ExtendWith(SpendExtension.class)
+@ExtendWith({
+        CategoryExtension.class,
+        SpendExtension.class
+})
 public class SpendingTest extends BaseWebTest {
 
     @BeforeEach
@@ -22,11 +27,15 @@ public class SpendingTest extends BaseWebTest {
                 .checkThatPageLoaded();
     }
 
-    @Spend(username = "yaro",
+    @Category(
+            username = "yaro",
+            category = "cat2")
+    @Spend(
+            username = "yaro",
             description = "QA.GURU Advanced 5",
             amount = 65000.00,
             currency = CurrencyValues.RUB,
-            category = "Обучение")
+            category = "cat2")
     @Test
     void spendingShouldBeDeletedAfterTableDeleteAction(SpendJson spendJson) {
         open(MainPage.URL, MainPage.class)
