@@ -29,13 +29,13 @@ public class SpendingTest extends BaseWebTest {
 
     @Category(
             username = "yaro",
-            category = "cat2")
+            category = "cat3")
     @Spend(
             username = "yaro",
             description = "QA.GURU Advanced 5",
             amount = 65000.00,
             currency = CurrencyValues.RUB,
-            category = "cat2")
+            category = "cat3")
     @Test
     void spendingShouldBeDeletedAfterTableDeleteAction(SpendJson spendJson) {
         open(MainPage.URL, MainPage.class)

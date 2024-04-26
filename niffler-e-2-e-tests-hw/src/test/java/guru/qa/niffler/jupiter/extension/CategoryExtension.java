@@ -1,6 +1,6 @@
 package guru.qa.niffler.jupiter.extension;
 
-import guru.qa.niffler.api.CategoryApi;
+import guru.qa.niffler.api.SpendApi;
 import guru.qa.niffler.jupiter.annotation.Category;
 import guru.qa.niffler.model.CategoryJson;
 import okhttp3.OkHttpClient;
@@ -11,7 +11,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
 
-public class CategoryExtension implements ParameterResolver, BeforeEachCallback {
+public class CategoryExtension implements BeforeEachCallback {
 
     public static ExtensionContext.Namespace NAMESPACE = ExtensionContext.Namespace.create(CategoryExtension.class);
 
@@ -26,7 +26,7 @@ public class CategoryExtension implements ParameterResolver, BeforeEachCallback 
 
     @Override
     public void beforeEach(ExtensionContext extensionContext) throws Exception {
-        CategoryApi categoryApi = retrofit.create(CategoryApi.class);
+        SpendApi categoryApi = retrofit.create(SpendApi.class);
 
         AnnotationSupport.findAnnotation(
                 extensionContext.getRequiredTestMethod(),
@@ -46,16 +46,6 @@ public class CategoryExtension implements ParameterResolver, BeforeEachCallback 
                     }
                 }
         );
-    }
-
-    @Override
-    public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
-        return parameterContext.getParameter().getType().isAssignableFrom(CategoryJson.class);
-    }
-
-    @Override
-    public CategoryJson resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
-        return extensionContext.getStore(NAMESPACE).get("category", CategoryJson.class);
     }
 
 }
