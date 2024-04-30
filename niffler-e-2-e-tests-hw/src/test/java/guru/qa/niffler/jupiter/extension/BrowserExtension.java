@@ -12,7 +12,8 @@ import org.openqa.selenium.OutputType;
 import java.io.ByteArrayInputStream;
 import java.util.Objects;
 
-public class BrowserExtension implements TestExecutionExceptionHandler,
+public class BrowserExtension implements
+        TestExecutionExceptionHandler,
         AfterEachCallback,
         LifecycleMethodExecutionExceptionHandler {
 
