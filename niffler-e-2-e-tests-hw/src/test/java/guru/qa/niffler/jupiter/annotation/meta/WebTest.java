@@ -1,6 +1,8 @@
-package guru.qa.niffler.jupiter.annotation;
+package guru.qa.niffler.jupiter.annotation.meta;
 
-import io.qameta.allure.junit5.AllureJunit5;
+import guru.qa.niffler.jupiter.extension.BrowserExtension;
+import guru.qa.niffler.jupiter.extension.CategoryExtension;
+import guru.qa.niffler.jupiter.extension.SpendExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.lang.annotation.ElementType;
@@ -11,7 +13,9 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @ExtendWith({
-        AllureJunit5.class
+        BrowserExtension.class,
+        CategoryExtension.class,
+        SpendExtension.class
 })
 public @interface WebTest {
 
