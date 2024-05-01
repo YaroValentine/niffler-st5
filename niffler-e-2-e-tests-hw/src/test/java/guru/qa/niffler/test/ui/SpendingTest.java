@@ -22,7 +22,7 @@ public class SpendingTest extends BaseWebTest {
 
     @Category(
             username = "yaro",
-            category = "cat1")
+            category = "cat2")
     @Spend(
             description = "QA.GURU Advanced 5",
             amount = 65000.00,

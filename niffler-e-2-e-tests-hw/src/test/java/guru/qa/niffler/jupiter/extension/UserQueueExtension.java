@@ -8,8 +8,9 @@ import java.util.Date;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+import static guru.qa.niffler.model.UserJson.simpleUser;
 
-// Любой тест проходит через него
+
 public class UserQueueExtension implements
         BeforeEachCallback,
         AfterEachCallback,
@@ -21,9 +22,9 @@ public class UserQueueExtension implements
     private static final Queue<UserJson> USERS = new ConcurrentLinkedQueue<>();
 
     static {
-//        USERS.add(simpleUser("dima", "12345"));
-//        USERS.add(simpleUser("duck", "12345"));
-//        USERS.add(simpleUser("barsik", "12345"));
+        USERS.add(simpleUser("yaro", "secret"));
+        USERS.add(simpleUser("olga", "secret"));
+        USERS.add(simpleUser("misha", "secret"));
     }
 
 
